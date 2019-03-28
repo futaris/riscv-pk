@@ -24,8 +24,8 @@ void* kernel_end;
 static void mstatus_init()
 {
   // Enable FPU
-  if (supports_extension('D') || supports_extension('F'))
-    write_csr(mstatus, MSTATUS_FS);
+  // if (supports_extension('D') || supports_extension('F'))
+  //  write_csr(mstatus, MSTATUS_FS);
 
   // Enable user/supervisor use of perf counters
   if (supports_extension('S'))
@@ -63,6 +63,8 @@ static void delegate_traps()
 
 static void fp_init()
 {
+  return;
+
   if (!supports_extension('D') && !supports_extension('F'))
     return;
 
